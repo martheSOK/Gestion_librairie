@@ -1,0 +1,33 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     */
+    public function up(): void
+    {
+        Schema::create('ligne_commandes', function (Blueprint $table) {
+            $table->id();
+            $table->string('prix_unit_vente');
+            $table->integer('quantite');
+            $table->integer('montant_ligne_commande');
+            $table->integer('id_livres');
+            $table->foreign('id_livres')->references('id')->on('livres');
+
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     */
+    public function down(): void
+    {
+        Schema::dropIfExists('ligne_commandes');
+    }
+};
