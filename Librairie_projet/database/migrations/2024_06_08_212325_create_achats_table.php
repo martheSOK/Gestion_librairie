@@ -16,10 +16,10 @@ return new class extends Migration
             $table->date('date_achat');
             $table->integer('montant');
             $table->string('etat');
-            $table->integer('id_employer');
-            $table->integer('id_fournisseur');
-            $table->foreign('id_employer')->references('id')->on('employers');
-            $table->foreign('id_fournisseur')->references('id')->on('fournisseurs');
+            $table->integer('id_employers');
+            $table->integer('id_fournisseurs');
+            $table->foreign('id_employers')->references('id')->on('employers');
+            $table->foreign('id_fournisseurs')->references('id')->on('fournisseurs');
 
             $table->timestamps();
         });
