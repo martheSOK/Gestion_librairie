@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('titre');
             $table->date('date_parution');
             $table->string('auteur');
-            $table->integer('nombre');
+            $table->integer('nombre_page');
             $table->timestamps();
         });
     }

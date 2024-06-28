@@ -15,12 +15,12 @@ return new class extends Migration
             $table->id();
             $table->string('prix_unit_achat');
             $table->integer('quantite');
-            $table->integer('montant_ligne_achat');
+            $table->integer('montant_ligneachat');
             $table->enum('etat',['en cours','terminé']);
-            $table->integer('id_achats');
-            $table->integer('id_livres');
-            $table->foreign('id_achats')->references('id')->on('achats');
-            $table->foreign('id_livres')->references('id')->on('livres');
+            $table->integer('achat_id');
+            $table->integer('livres_id');
+            $table->foreign('achat_id')->references('id')->on('achats');
+            $table->foreign('livres_id')->references('id')->on('livres');
 
             $table->timestamps();
         });

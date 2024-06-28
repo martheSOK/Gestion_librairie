@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('achats', function (Blueprint $table) {
             $table->id();
+<<<<<<< HEAD
             $table->date('date_achat');
             $table->integer('montant');
             $table->string('etat');
@@ -20,6 +21,14 @@ return new class extends Migration
             $table->integer('id_fournisseurs');
             $table->foreign('id_employers')->references('id')->on('employers');
             $table->foreign('id_fournisseurs')->references('id')->on('fournisseurs');
+=======
+            $table->integer('montant_achat');
+            $table->enum('etat',['en cours','livrer','annuler']);
+            $table->integer('employer_id');
+            $table->integer('fournisseur_id');
+            $table->foreign('employer_id')->references('id')->on('employers');
+            $table->foreign('fournisseur_id')->references('id')->on('fournisseurs');
+>>>>>>> 982bc25 (controller employer,achat)
 
             $table->timestamps();
         });
