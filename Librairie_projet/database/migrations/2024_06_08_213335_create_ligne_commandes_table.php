@@ -15,10 +15,11 @@ return new class extends Migration
             $table->id();
             $table->string('prix_unit_vente');
             $table->integer('quantite');
-            $table->integer('montant_ligne_commande');
-            $table->integer('id_livres');
-            $table->foreign('id_livres')->references('id')->on('livres');
-
+            $table->integer('montant_lignecommande');
+            $table->integer('livre_id');
+            $table->foreign('livre_id')->references('id')->on('livres');
+            $table->integer('commande_id');
+            $table->foreign('commande_id')->references('id')->on('commandes');
             $table->timestamps();
         });
     }

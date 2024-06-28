@@ -15,8 +15,12 @@ return new class extends Migration
             $table->id();
             $table->string('montant');
             $table->date('date_commande');
-            $table->integer('id_clients');
-            $table->foreign('id_clients')->references('id')->on('clients');
+            $table->integer('client_id');
+            $table->integer('employer_id');
+
+            $table->foreign('client_id')->references('id')->on('clients');
+            $table->foreign('employer_id')->references('id')->on('clients');
+
             $table->timestamps();
         });
     }
